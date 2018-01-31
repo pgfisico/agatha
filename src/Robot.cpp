@@ -14,6 +14,8 @@
 
 #include "Commands/ExampleCommand.h"
 #include "Commands/MyAutoCommand.h"
+#include "Subsystems/DriveTrainK00LkidsOnly.h"
+#include <Memory>
 
 class Robot : public frc::TimedRobot {
 public:
@@ -21,6 +23,7 @@ public:
 		m_chooser.AddDefault("Default Auto", &m_defaultAuto);
 		m_chooser.AddObject("My Auto", &m_myAuto);
 		frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+		drivetrain.reset(new DriveTrainK00LkidsOnly()) ;
 	}
 
 	/**
@@ -92,6 +95,10 @@ private:
 	ExampleCommand m_defaultAuto;
 	MyAutoCommand m_myAuto;
 	frc::SendableChooser<frc::Command*> m_chooser;
+
+	std::shared_ptr<DriveTrainK00LkidsOnly> drivetrain;
+
+
 };
 
 START_ROBOT_CLASS(Robot)
