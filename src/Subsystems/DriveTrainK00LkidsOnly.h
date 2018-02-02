@@ -2,7 +2,7 @@
 #define DriveTrainK00LkidsOnly_H
 
 #include <Commands/Subsystem.h>
-#include <PWMSpeedController.h>
+#include <Talon.h>
 #include <memory>
 
 
@@ -11,10 +11,14 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 
-	std::shared_ptr<frc::PWMSpeedController>  LeftfrontMotorEMMA;
-	std::shared_ptr<frc::PWMSpeedController> LeftbackMotorJUDY;
-	std::shared_ptr<frc::PWMSpeedController> RightfrontMotorPAOLO;
-	std::shared_ptr<frc::PWMSpeedController> RightbackMotorTOMOE;
+	frc::Talon *Motor1;
+	frc::Talon *Motor2;
+	frc::Talon *Motor3;
+	frc::Talon *Motor4;
+	std::shared_ptr<frc::Talon> LeftfrontMotorEMMA;
+	std::shared_ptr<frc::Talon> LeftbackMotorJUDY;
+	std::shared_ptr<frc::Talon> RightfrontMotorPAOLO;
+	std::shared_ptr<frc::Talon> RightbackMotorTOMOE;
 
 public:
 	DriveTrainK00LkidsOnly();

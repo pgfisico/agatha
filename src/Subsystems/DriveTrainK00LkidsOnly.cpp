@@ -3,6 +3,15 @@
 
 DriveTrainK00LkidsOnly::DriveTrainK00LkidsOnly() : frc::Subsystem("ExampleSubsystem") {
 
+
+
+Motor1 =	 new frc::Talon(1);
+Motor2 = new frc::Talon(2);
+Motor3 = new frc::Talon(3);
+Motor4 = new frc::Talon(4);
+
+
+
 }
 
 void DriveTrainK00LkidsOnly::InitDefaultCommand() {
