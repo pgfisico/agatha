@@ -19,6 +19,10 @@ private:
 	std::shared_ptr<frc::Talon> LeftbackMotorJUDY;
 	std::shared_ptr<frc::Talon> RightfrontMotorPAOLO;
 	std::shared_ptr<frc::Talon> RightbackMotorTOMOE;
+	//code for future use
+	//RobotDrive *drive;
+	//drive = new RobotDrive(0,1,2,3) //4 motor drive
+	//drive = new RobotDrive(0,1) //2 motor drive
 
 public:
 	DriveTrainK00LkidsOnly();
