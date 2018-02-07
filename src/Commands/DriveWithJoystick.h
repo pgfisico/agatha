@@ -9,12 +9,14 @@
 
 #include <Commands/Command.h>
 
-class ExampleCommand : public frc::Command {
+/**
+ * This command allows PS3 joystick to drive the robot. It is always running
+ * except when interrupted by another command.
+ */
+class DriveWithJoystick : public frc::Command {
 public:
-	ExampleCommand();
-	void Initialize() override;
+	DriveWithJoystick();
 	void Execute() override;
 	bool IsFinished() override;
 	void End() override;
-	void Interrupted() override;
 };

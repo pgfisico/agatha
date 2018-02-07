@@ -5,27 +5,30 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "ExampleCommand.h"
+#include "DriveWithJoystick.h"
+#include <Subsystems/DriveTrain.h>
+#include "../Robot.h"
+#include "OI.h"
+#include <Xboxcontroller.h>
 
-ExampleCommand::ExampleCommand() {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(&Robot::chassis);
+typedef frc::GenericHID::JoystickHand JoystickHand;
+
+DriveWithJoystick::DriveWithJoystick() {
+	Requires(&Robot::drivetrain);
 }
 
-// Called just before this Command runs the first time
-void ExampleCommand::Initialize() {}
-
 // Called repeatedly when this Command is scheduled to run
-void ExampleCommand::Execute() {}
+void DriveWithJoystick::Execute() {
+	auto &joystick = OI::controller;
+	Robot::drivetrain.ArcadeDrive(joystick.GetY(JoystickHand::kLeftHand), joystick.GetX(JoystickHand::kRightHand));
+}
 
 // Make this return true when this Command no longer needs to run execute()
-bool ExampleCommand::IsFinished() {
+bool DriveWithJoystick::IsFinished() {
 	return false;
 }
 
 // Called once after isFinished returns true
-void ExampleCommand::End() {}
-
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void ExampleCommand::Interrupted() {}
+void DriveWithJoystick::End() {
+	Robot::drivetrain.Stop();
+}

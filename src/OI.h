@@ -6,8 +6,12 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
+#include <XboxController.h>
 
 class OI {
 public:
+	static frc::XboxController controller;
+
+
 	OI();
 };
