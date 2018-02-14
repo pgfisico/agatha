@@ -1,15 +1,10 @@
-
-
-
-
 #pragma once
 
-#include <AnalogGyro.h>
 #include <Commands/Subsystem.h>
 #include <Drive/DifferentialDrive.h>
-#include <Encoder.h>
-#include <Spark.h>
+#include <VictorSP.h>
 #include <SpeedControllerGroup.h>
+#include "RobotMap.h"
 
 namespace frc {
 class Joystick;
@@ -41,39 +36,17 @@ public:
 	 */
 	void Stop();
 
-	/**
-	 * @return The encoder getting the distance and speed of left side of
-	 * the drivetrain.
-	 */
-	//Encoder& GetLeftEncoder();
-
-	/**
-	 * @return The encoder getting the distance and speed of right side of
-	 * the drivetrain.
-	 */
-	//Encoder& GetRightEncoder();
-
-	/**
-	 * @return The current angle of the drivetrain.
-	 */
-	double GetAngle();
-
 private:
 	// Subsystem devices
-	frc::Spark m_frontLeftCIM{1};
-	frc::Spark m_rearLeftCIM{2};
-	frc::SpeedControllerGroup m_leftCIMs{m_frontLeftCIM, m_rearLeftCIM};
+	frc::VictorSP frontLeftCIM{FRONT_LEFT};
+	frc::VictorSP rearLeftCIM{REAR_LEFT};
+	frc::SpeedControllerGroup leftCIMs{frontLeftCIM, rearLeftCIM};
 
-	frc::Spark m_frontRightCIM{3};
-	frc::Spark m_rearRightCIM{4};
-	frc::SpeedControllerGroup m_rightCIMs{m_frontRightCIM, m_rearRightCIM};
+	frc::VictorSP frontRightCIM{FRONT_RIGHT};
+	frc::VictorSP rearRightCIM{REAR_RIGHT};
+	frc::SpeedControllerGroup rightCIMs{frontRightCIM, rearRightCIM};
 
-	frc::DifferentialDrive m_robotDrive{m_leftCIMs, m_rightCIMs};
-
-	//frc::Encoder m_rightEncoder{1, 2, true, Encoder::k4X};
-	//frc::Encoder m_leftEncoder{3, 4, false, Encoder::k4X};
-	//frc::AnalogGyro m_gyro{0};
-
+	frc::DifferentialDrive robotDrive{leftCIMs, rightCIMs};
 };
 
 

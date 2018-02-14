@@ -17,10 +17,10 @@ void DriveTrain::InitDefaultCommand() {
 
 void DriveTrain::ArcadeDrive(double leftAxis, double rightAxis){
 
-	m_robotDrive.ArcadeDrive(leftAxis, rightAxis);
+	robotDrive.ArcadeDrive(leftAxis, rightAxis);
 }
 
 void DriveTrain::Stop()
 {
-	m_robotDrive.StopMotor();
+	robotDrive.StopMotor();
 }
