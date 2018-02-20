@@ -6,6 +6,7 @@
 
 DriveTrain::DriveTrain() : frc::Subsystem("ExampleSubsystem")
 {
+	rightCIMs.SetInverted(true);
 	leftCIMs.SetInverted(true);
 }
 

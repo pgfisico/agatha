@@ -20,7 +20,10 @@ DriveWithJoystick::DriveWithJoystick() {
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoystick::Execute() {
 	auto &joystick = OI::controller;
-	Robot::drivetrain.ArcadeDrive(joystick.GetY(JoystickHand::kLeftHand), joystick.GetX(JoystickHand::kRightHand));
+	double straight = joystick.GetY(JoystickHand::kLeftHand);
+	double turn = -1 * joystick.GetX(JoystickHand::kRightHand);
+
+	Robot::drivetrain.ArcadeDrive(straight, turn);
 }
 
 // Make this return true when this Command no longer needs to run execute()
