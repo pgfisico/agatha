@@ -1,0 +1,7 @@
+# Build output
+/Debug/
+/Windows Simulate/
+/linux_simulate/
+
+# env-hash changes between machines, currently a hassle to fix
+/.settings/language.settings.xml

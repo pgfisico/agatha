@@ -11,6 +11,7 @@
 
 frc::XboxController OI::controller(0);
 
-OI::OI() {
-	// Process operator interface input here.
+OI::OI()
+{
+    // Process operator interface input here.
 }

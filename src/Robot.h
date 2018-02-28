@@ -10,23 +10,22 @@
 #include <TimedRobot.h>
 #include <Subsystems/DriveTrain.h>
 
-class Robot : public frc::TimedRobot {
-public:
-	static DriveTrain drivetrain;
+class Robot : public frc::TimedRobot
+{
+    public:
+        static DriveTrain drivetrain;
 
-	void RobotInit() override;
-	void DisabledInit() override;
-	void DisabledPeriodic() override;
-	void AutonomousInit() override;
-	void AutonomousPeriodic() override;
-	void TeleopInit() override;
-	void TeleopPeriodic() override;
-	void TestPeriodic() override;
+        void RobotInit() override;
+        void DisabledInit() override;
+        void DisabledPeriodic() override;
+        void AutonomousInit() override;
+        void AutonomousPeriodic() override;
+        void TeleopInit() override;
+        void TeleopPeriodic() override;
+        void TestPeriodic() override;
 
-private:
-	frc::Command* m_autonomousCommand = nullptr;
+    private:
+        frc::Command* m_autonomousCommand = nullptr;
 };
-
-
 
 #endif /* SRC_ROBOT_H_ */
