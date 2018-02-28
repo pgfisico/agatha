@@ -13,25 +13,29 @@
 
 typedef frc::GenericHID::JoystickHand JoystickHand;
 
-DriveWithJoystick::DriveWithJoystick() {
-	Requires(&Robot::drivetrain);
+DriveWithJoystick::DriveWithJoystick()
+{
+    Requires(&Robot::drivetrain);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveWithJoystick::Execute() {
-	auto &joystick = OI::controller;
-	double straight = joystick.GetY(JoystickHand::kLeftHand);
-	double turn = -1 * joystick.GetX(JoystickHand::kRightHand);
+void DriveWithJoystick::Execute()
+{
+    auto &joystick = OI::controller;
+    double straight = joystick.GetY(JoystickHand::kLeftHand);
+    double turn = -1 * joystick.GetX(JoystickHand::kRightHand);
 
-	Robot::drivetrain.ArcadeDrive(straight, turn);
+    Robot::drivetrain.ArcadeDrive(straight, turn);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DriveWithJoystick::IsFinished() {
-	return false;
+bool DriveWithJoystick::IsFinished()
+{
+    return false;
 }
 
 // Called once after isFinished returns true
-void DriveWithJoystick::End() {
-	Robot::drivetrain.Stop();
+void DriveWithJoystick::End()
+{
+    Robot::drivetrain.Stop();
 }

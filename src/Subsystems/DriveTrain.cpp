@@ -1,19 +1,19 @@
 #include "Subsystems/DriveTrain.h"
 
-
 #include "Commands/DriveWithJoystick.h"
 #include "RobotMap.h"
 
-DriveTrain::DriveTrain() : frc::Subsystem("ExampleSubsystem")
+DriveTrain::DriveTrain() :
+        frc::Subsystem("ExampleSubsystem")
 {
-	rightCIMs.SetInverted(true);
-	leftCIMs.SetInverted(true);
+    rightCIMs.SetInverted(true);
+    leftCIMs.SetInverted(true);
 }
 
 void DriveTrain::InitDefaultCommand()
 {
-	// Set the default command for a subsystem here.
-	SetDefaultCommand(new DriveWithJoystick());
+    // Set the default command for a subsystem here.
+    SetDefaultCommand(new DriveWithJoystick());
 }
 
 // Put methods for controlling this subsystem
@@ -21,10 +21,10 @@ void DriveTrain::InitDefaultCommand()
 
 void DriveTrain::ArcadeDrive(double leftAxis, double rightAxis)
 {
-	robotDrive.ArcadeDrive(leftAxis, rightAxis);
+    robotDrive.ArcadeDrive(leftAxis, rightAxis);
 }
 
 void DriveTrain::Stop()
 {
-	robotDrive.StopMotor();
+    robotDrive.StopMotor();
 }
