@@ -13,10 +13,11 @@
 #include <Subsystems/DriveTrain.h>
 #include <TimedRobot.h>
 #include "Robot.h"
-
+#include <Subsystems/Claw.h>
 #include <Memory>
 
 DriveTrain Robot::drivetrain;
+Claw Robot::claw;
 
 void Robot::RobotInit()
 {

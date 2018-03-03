@@ -8,8 +8,11 @@
 #include "Claw.h"
 #include "../RobotMap.h"
 
+constexpr static double SPEED = 0.5;
+
 Claw::Claw() :
-        frc::Subsystem("ExampleSubsystem"), leftMotor(LEFT_CLAW_MOTOR), rightMotor(RIGHT_CLAW_MOTOR)
+        frc::Subsystem("ExampleSubsystem"), leftMotor(LEFT_CLAW_MOTOR), rightMotor(RIGHT_CLAW_MOTOR),
+                clawMotors(leftMotor, rightMotor)
 {
 
 }
@@ -21,3 +24,11 @@ void Claw::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+void Claw::grab()
+{
+    clawMotors.Set(SPEED);
+}
+void Claw::release()
+{
+    clawMotors.Set(-SPEED);
+}

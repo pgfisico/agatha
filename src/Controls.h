@@ -5,13 +5,13 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "OI.h"
+#pragma once
+#include <XboxController.h>
 
-#include <WPILib.h>
-
-frc::XboxController OI::controller(0);
-
-OI::OI()
+class Controls
 {
-    // Process operator interface input here.
-}
+    public:
+        static frc::XboxController controller;
+
+        Controls();
+};

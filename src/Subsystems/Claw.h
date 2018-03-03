@@ -9,6 +9,7 @@
 
 #include <Commands/Subsystem.h>
 #include <Talon.h>
+#include <SpeedControllerGroup.h>
 
 class Claw : public frc::Subsystem
 {
@@ -17,7 +18,7 @@ class Claw : public frc::Subsystem
         // for methods that implement subsystem capabilities
         frc::Talon leftMotor;
         frc::Talon rightMotor;
-
+        frc::SpeedControllerGroup clawMotors;
     public:
         Claw();
         void InitDefaultCommand() override;

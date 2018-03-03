@@ -9,11 +9,13 @@
 #define SRC_ROBOT_H_
 #include <TimedRobot.h>
 #include <Subsystems/DriveTrain.h>
+#include <Subsystems/Claw.h>
 
 class Robot : public frc::TimedRobot
 {
     public:
         static DriveTrain drivetrain;
+        static Claw claw;
 
         void RobotInit() override;
         void DisabledInit() override;

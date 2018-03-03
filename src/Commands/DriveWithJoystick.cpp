@@ -5,10 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+#include <Controls.h>
 #include "DriveWithJoystick.h"
 #include <Subsystems/DriveTrain.h>
 #include "../Robot.h"
-#include "OI.h"
 #include <Xboxcontroller.h>
 
 typedef frc::GenericHID::JoystickHand JoystickHand;
@@ -21,7 +21,7 @@ DriveWithJoystick::DriveWithJoystick()
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoystick::Execute()
 {
-    auto &joystick = OI::controller;
+    auto &joystick = Controls::controller;
     double straight = joystick.GetY(JoystickHand::kLeftHand);
     double turn = -1 * joystick.GetX(JoystickHand::kRightHand);
 
