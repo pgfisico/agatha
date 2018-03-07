@@ -22,6 +22,9 @@ constexpr int FRONT_RIGHT = 3;
 constexpr int REAR_RIGHT = 4;
 constexpr int LEFT_CLAW_MOTOR = 5;
 constexpr int RIGHT_CLAW_MOTOR = 6;
+constexpr int WINCH_MOTOR = 7;
+//Digital Input vvv
+constexpr int LIMIT_SWITCHES = 0;
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:
 // constexpr int kRangeFinderPort = 1;
