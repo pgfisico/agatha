@@ -5,6 +5,7 @@
 #include <VictorSP.h>
 #include <SpeedControllerGroup.h>
 #include "RobotMap.h"
+#include <Encoder.h>
 
 namespace frc
 {
@@ -37,17 +38,19 @@ class DriveTrain : public frc::Subsystem
          * Stop the drivetrain from moving.
          */
         void Stop();
-
+        void ResetDistance();
+        double GetDistance();
     private:
         // Subsystem devices
-        frc::VictorSP frontLeftCIM { FRONT_LEFT };
-        frc::VictorSP rearLeftCIM { REAR_LEFT };
-        frc::SpeedControllerGroup leftCIMs { frontLeftCIM, rearLeftCIM };
+        frc::VictorSP frontLeftCIM;
+        frc::VictorSP rearLeftCIM;
+        frc::SpeedControllerGroup leftCIMs;
 
-        frc::VictorSP frontRightCIM { FRONT_RIGHT };
-        frc::VictorSP rearRightCIM { REAR_RIGHT };
-        frc::SpeedControllerGroup rightCIMs { frontRightCIM, rearRightCIM };
-
-        frc::DifferentialDrive robotDrive { leftCIMs, rightCIMs };
+        frc::VictorSP frontRightCIM;
+        frc::VictorSP rearRightCIM;
+        frc::SpeedControllerGroup rightCIMs;
+        frc::Encoder leftencoder;
+        frc::Encoder rightencoder;
+        frc::DifferentialDrive robotDrive;
 };
 
