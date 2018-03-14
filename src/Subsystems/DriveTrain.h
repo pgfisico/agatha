@@ -1,5 +1,10 @@
 #pragma once
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-but-set-parameter"
+#include <AHRS.h>
+#pragma GCC diagnostic pop
+
 #include <Commands/Subsystem.h>
 #include <Drive/DifferentialDrive.h>
 #include <VictorSP.h>
@@ -40,6 +45,7 @@ class DriveTrain : public frc::Subsystem
         void Stop();
         void ResetDistance();
         double GetDistance();
+        float GetHeading();
     private:
         // Subsystem devices
         frc::VictorSP frontLeftCIM;
@@ -52,5 +58,7 @@ class DriveTrain : public frc::Subsystem
         frc::Encoder leftencoder;
         frc::Encoder rightencoder;
         frc::DifferentialDrive robotDrive;
+
+        AHRS navSensor;
 };
 
