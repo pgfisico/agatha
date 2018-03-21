@@ -15,16 +15,30 @@ void Forklift::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void Forklift::ForkliftUp(){
-
-}
-void Forklift::ForkliftUp(double WinchSpeed){
-WinchMotor.Set(WinchSpeed);
+void Forklift::ForkliftUp()
+{
+    ForkliftUp (0.824);
 }
 
-void Forklift::ForkliftDown(){
+void Forklift::ForkliftUp(double WinchSpeed)
+{
+    if (WinchSpeed < 0)
+    {
+        return;
+    }
+
+    if (LimitSwitches.Get())
+    {
+        WinchMotor.Set(0);
+    }
+    else
+    {
+        WinchMotor.Set(WinchSpeed);
+    }
 }
 
-void Forklift::ForkliftDown(double WinchSpeed){
-    (void) WinchSpeed;
-}
+/*void Forklift::ForkliftDown(){
+ }
+
+ void Forklift::ForkliftDown(double WinchSpeed){
+ }*/
