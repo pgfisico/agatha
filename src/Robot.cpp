@@ -18,6 +18,7 @@
 
 DriveTrain Robot::drivetrain;
 Claw Robot::claw;
+Forklift Robot::forklift;
 
 void Robot::RobotInit()
 {

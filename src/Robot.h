@@ -10,12 +10,14 @@
 #include <TimedRobot.h>
 #include <Subsystems/DriveTrain.h>
 #include <Subsystems/Claw.h>
+#include "Subsystems/Forklift.h"
 
 class Robot : public frc::TimedRobot
 {
     public:
         static DriveTrain drivetrain;
         static Claw claw;
+        static Forklift forklift;
 
         void RobotInit() override;
         void DisabledInit() override;

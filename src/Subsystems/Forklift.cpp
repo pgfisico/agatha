@@ -1,6 +1,8 @@
 #include "Forklift.h"
 #include "RobotMap.h"
 
+#include "Commands/Leviosa.h"
+
 Forklift::Forklift() :
         Subsystem("ExampleSubsystem"), WinchMotor(WINCH_MOTOR), LimitSwitches(LIMIT_SWITCHES)
 {
@@ -11,6 +13,7 @@ void Forklift::InitDefaultCommand()
 {
     // Set the default command for a subsystem here
     // SetDefaultCommand(new MySpecialCommand());
+    SetDefaultCommand(new Leviosa());
 }
 
 // Put methods for controlling this subsystem
