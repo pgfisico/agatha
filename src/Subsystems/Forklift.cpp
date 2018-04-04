@@ -40,8 +40,22 @@ void Forklift::ForkliftUp(double WinchSpeed)
     }
 }
 
-/*void Forklift::ForkliftDown(){
- }
+void Forklift::ForkliftDown(){
+    ForkliftDown(0.824);
+}
 
  void Forklift::ForkliftDown(double WinchSpeed){
- }*/
+     if (WinchSpeed < 0)
+         {
+             return;
+         }
+
+         if (LimitSwitches.Get())
+         {
+             WinchMotor.Set(0);
+         }
+         else
+         {
+             WinchMotor.Set(-1*WinchSpeed);
+         }
+ }

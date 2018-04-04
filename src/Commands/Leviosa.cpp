@@ -24,10 +24,12 @@ void Leviosa::Initialize() {
 void Leviosa::Execute() {
     auto &joystick = Controls::controller;
     double speed = joystick.GetTriggerAxis(JoystickHand::kRightHand);
+    speed=std::pow(speed, 3)*0.5;
+    double DownSpeed = joystick.GetTriggerAxis(JoystickHand::kLeftHand);
+    DownSpeed=std::pow(DownSpeed, 3)*0.5;
 
     Robot::forklift.ForkliftUp(speed);
-
-
+    Robot::forklift.ForkliftDown(DownSpeed);
 }
 
 // Make this return true when this Command no longer needs to run execute()

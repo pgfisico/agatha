@@ -20,8 +20,8 @@ class Forklift : public frc::Subsystem
         void InitDefaultCommand();
         void ForkliftUp();
         void ForkliftUp(double WinchSpeed);
-        //void ForkliftDown();
-        //void ForkliftDown(double WinchSpeed);
+        void ForkliftDown();
+        void ForkliftDown(double WinchSpeed);
 };
 
 #endif  // Forklift_H

@@ -24,6 +24,8 @@ void DriveWithJoystick::Execute()
     auto &joystick = Controls::controller;
     double straight = joystick.GetY(JoystickHand::kLeftHand);
     double turn = -1 * joystick.GetX(JoystickHand::kRightHand);
+    straight=std::pow(straight,3)*0.5;
+    turn=std::pow(turn,3)*0.5;
 
     Robot::drivetrain.ArcadeDrive(straight, turn);
 }

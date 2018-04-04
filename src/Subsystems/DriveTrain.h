@@ -2,7 +2,7 @@
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-but-set-parameter"
-#include <AHRS.h>
+//#include <AHRS.h>
 #pragma GCC diagnostic pop
 
 #include <Commands/Subsystem.h>
@@ -59,6 +59,6 @@ class DriveTrain : public frc::Subsystem
         frc::Encoder rightencoder;
         frc::DifferentialDrive robotDrive;
 
-        AHRS navSensor;
+      //  AHRS navSensor;
 };
 

@@ -9,7 +9,7 @@ DriveTrain::DriveTrain() :
         frc::Subsystem("ExampleSubsystem"), frontLeftCIM { FRONT_LEFT }, rearLeftCIM { REAR_LEFT }, leftCIMs {
                 frontLeftCIM, rearLeftCIM }, frontRightCIM { FRONT_RIGHT }, rearRightCIM { REAR_RIGHT }, rightCIMs {
                 frontRightCIM, rearRightCIM }, leftencoder { leftencoderA, leftencoderB }, rightencoder { rightencoderA,
-                rightencoderB }, robotDrive { leftCIMs, rightCIMs}, navSensor{frc::SerialPort::Port:: kUSB1}
+                rightencoderB }, robotDrive { leftCIMs, rightCIMs}//, navSensor{frc::SerialPort::Port:: kUSB1}
 {
     rightCIMs.SetInverted(true);
     leftCIMs.SetInverted(true);
@@ -48,5 +48,6 @@ double DriveTrain::GetDistance()
 }
 float DriveTrain::GetHeading()
 {
-    return navSensor.GetFusedHeading();
+    //return navSensor.GetFusedHeading();
+    return 1;
 }
