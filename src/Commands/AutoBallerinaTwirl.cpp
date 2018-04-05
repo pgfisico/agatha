@@ -42,7 +42,7 @@ void AutoBallerinaTwirl::Execute() {
 // Make this return true when this Command no longer needs to run execute()
 bool AutoBallerinaTwirl::IsFinished() {
 	return false;
-	bool
+	//bool
 }
 
 // Called once after isFinished returns true
