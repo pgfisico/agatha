@@ -12,13 +12,13 @@
 
 frc::XboxController Controls::controller(0);
 constexpr static int Bbutton = 2;
-constexpr static int Xbutton = 3;
+constexpr static int Abutton = 1;
 Controls::Controls()
 {
     // Process operator interface input here.
     JoystickButton* GrabButton = new JoystickButton(&controller, Bbutton);
     GrabButton->WhileHeld(new GrabCube());
 
-    JoystickButton* ReleaseButton = new JoystickButton(&controller, Xbutton);
+    JoystickButton* ReleaseButton = new JoystickButton(&controller, Abutton);
     ReleaseButton->WhileHeld(new ReleaseCube());
 }

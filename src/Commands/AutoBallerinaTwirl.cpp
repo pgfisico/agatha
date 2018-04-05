@@ -2,6 +2,10 @@
 #include <Subsystems/DriveTrain.h>
 #include "Robot.h"
 
+AutoBallerinaTwirl::AutoBallerinaTwirl() {
+    AutoBallerinaTwirl(0);
+}
+
 AutoBallerinaTwirl::AutoBallerinaTwirl(double angle) : Twirl(angle) {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());

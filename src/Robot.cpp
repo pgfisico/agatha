@@ -20,9 +20,11 @@ DriveTrain Robot::drivetrain;
 Claw Robot::claw;
 Forklift Robot::forklift;
 
+
 void Robot::RobotInit()
 {
-
+  autodriveDefault = new AutoDrive(10);
+  autodriveBallerina = new AutoBallerinaTwirl(0);
 }
 
 /**
@@ -57,6 +59,7 @@ void Robot::DisabledPeriodic()
  */
 void Robot::AutonomousInit()
 {
+    m_autonomousCommand = autodriveDefault;
     if (m_autonomousCommand != nullptr)
     {
         m_autonomousCommand->Start();

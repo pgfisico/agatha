@@ -6,6 +6,7 @@
 class AutoBallerinaTwirl : public frc::Command {
 public:
 	AutoBallerinaTwirl(double angle);
+    AutoBallerinaTwirl();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

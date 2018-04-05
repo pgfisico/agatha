@@ -11,6 +11,8 @@
 #include <Subsystems/DriveTrain.h>
 #include <Subsystems/Claw.h>
 #include "Subsystems/Forklift.h"
+#include "Commands/AutoDrive.h"
+#include "Commands/AutoBallerinaTwirl.h"
 
 class Robot : public frc::TimedRobot
 {
@@ -30,6 +32,8 @@ class Robot : public frc::TimedRobot
 
     private:
         frc::Command* m_autonomousCommand = nullptr;
+        AutoDrive *autodriveDefault;
+        AutoBallerinaTwirl *autodriveBallerina;
 };
 
 #endif /* SRC_ROBOT_H_ */
