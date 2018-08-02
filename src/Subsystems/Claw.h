@@ -8,7 +8,7 @@
 #include "../Controls.h"
 #include "../RobotState.h"
 
-namespace ophelia
+namespace agatha
 {
 
 class Claw : public frc::Subsystem, public std::enable_shared_from_this<Claw>

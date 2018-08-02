@@ -1,10 +1,10 @@
 // TODO doc
 
+#include <Agatha.h>
 #include <RobotBase.h>
 
-#include "Ophelia.h"
 
-START_ROBOT_CLASS(ophelia::Ophelia)
+START_ROBOT_CLASS(agatha::Agatha)
 
 // TODO
 /*

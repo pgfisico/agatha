@@ -11,7 +11,7 @@
 
 #include "Pins.h"
 
-namespace ophelia
+namespace agatha
 {
 
 void RobotBuilder::build()

@@ -4,7 +4,7 @@
 
 #include <XboxController.h>
 
-namespace ophelia
+namespace agatha
 {
 
 class Controls

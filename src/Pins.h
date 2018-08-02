@@ -1,7 +1,7 @@
 #pragma once
 
 // TODO also consider "wiring"
-namespace ophelia
+namespace agatha
 {
 
 class PwmPins

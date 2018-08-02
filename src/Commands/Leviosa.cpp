@@ -1,12 +1,11 @@
 #include "Leviosa.h"
 
 // TODO below
-#include <Ophelia.h>
 #include "Controls.h"
 
 typedef frc::GenericHID::JoystickHand JoystickHand;
 
-namespace ophelia
+namespace agatha
 {
 
 Leviosa::Leviosa()

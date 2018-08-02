@@ -1,9 +1,8 @@
 #include "ReleaseCube.h"
 
 // TODO below
-#include <Ophelia.h>
 
-namespace ophelia
+namespace agatha
 {
 
 ReleaseCube::ReleaseCube()

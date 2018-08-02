@@ -2,13 +2,12 @@
 
 // TODO below
 #include <Controls.h>
-#include <Ophelia.h>
 #include <Subsystems/DriveTrain.h>
 #include <Xboxcontroller.h>
 
 typedef frc::GenericHID::JoystickHand JoystickHand;
 
-namespace ophelia
+namespace agatha
 {
 
 DriveWithJoystick::DriveWithJoystick()

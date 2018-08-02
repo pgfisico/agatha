@@ -1,10 +1,9 @@
 #include "AutoDrive.h"
 
 // TODO below
-#include <Ophelia.h>
 #include <Subsystems/DriveTrain.h>
 
-namespace ophelia
+namespace agatha
 {
 AutoDrive::AutoDrive(double distress) :
         distress(distress)

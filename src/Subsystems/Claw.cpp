@@ -3,7 +3,7 @@
 // TODO wrap in namespace -- add to a config???
 constexpr static double SPEED = 0.5;
 
-namespace ophelia
+namespace agatha
 {
 
 Claw::Claw(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,

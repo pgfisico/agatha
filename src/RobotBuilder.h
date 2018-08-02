@@ -8,7 +8,7 @@
 #include "Controls.h"
 #include "RobotState.h"
 
-namespace ophelia
+namespace agatha
 {
 
 class RobotBuilder

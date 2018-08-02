@@ -2,7 +2,7 @@
 
 #include <Commands/Command.h>
 
-namespace ophelia
+namespace agatha
 {
 
 class DriveWithJoystick : public frc::Command

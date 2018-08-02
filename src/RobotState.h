@@ -1,6 +1,6 @@
 #pragma once
 
-namespace ophelia
+namespace agatha
 {
 
 class RobotState

@@ -19,7 +19,7 @@
 #include "../Controls.h"
 #include "../RobotState.h"
 
-namespace ophelia
+namespace agatha
 {
 
 // TODO consider pulling up common subsystem items - name, controls/robotState, shared_form_this, etc

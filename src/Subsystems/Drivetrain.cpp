@@ -2,7 +2,7 @@
 
 constexpr static double inpertick = 0.052;
 
-namespace ophelia
+namespace agatha
 {
 
 Drivetrain::Drivetrain(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,

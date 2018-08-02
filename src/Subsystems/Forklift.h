@@ -9,7 +9,7 @@
 #include "../Controls.h"
 #include "../RobotState.h"
 
-namespace ophelia
+namespace agatha
 {
 
 class Forklift : public frc::Subsystem

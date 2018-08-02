@@ -1,9 +1,8 @@
 #include "GrabCube.h"
 
 // TODO below
-#include <Ophelia.h>
 
-namespace ophelia
+namespace agatha
 {
 
 GrabCube::GrabCube()
