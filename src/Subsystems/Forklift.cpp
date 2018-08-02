@@ -1,26 +1,29 @@
 #include "Forklift.h"
-#include "RobotMap.h"
 
-#include "Commands/Leviosa.h"
+#include <utility>
 
-Forklift::Forklift() :
-        Subsystem("ExampleSubsystem"), WinchMotor(WINCH_MOTOR), LimitSwitches(LIMIT_SWITCHES)
+// TODO
+//#include "Commands/Leviosa.h"
+
+namespace ophelia
 {
 
+Forklift::Forklift(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,
+        std::unique_ptr<frc::SpeedController> winchMotor, std::unique_ptr<frc::DigitalInput> limitSwitches) :
+        frc::Subsystem("Forklift"), controls(controls), robotState(robotState), winchMotor(std::move(winchMotor)),
+                limitSwitches(std::move(limitSwitches))
+{
+    // Intentionally empty
 }
 
 void Forklift::InitDefaultCommand()
 {
-    // Set the default command for a subsystem here
-    // SetDefaultCommand(new MySpecialCommand());
-    SetDefaultCommand(new Leviosa());
+    //SetDefaultCommand(new Leviosa());
 }
 
-// Put methods for controlling this subsystem
-// here. Call these from Commands.
 void Forklift::ForkliftUp()
 {
-    ForkliftUp (0.824);
+    ForkliftUp(0.824);
 }
 
 void Forklift::ForkliftUp(double WinchSpeed)
@@ -30,32 +33,36 @@ void Forklift::ForkliftUp(double WinchSpeed)
         return;
     }
 
-    if (LimitSwitches.Get())
+    if (limitSwitches->Get())
     {
-        WinchMotor.Set(0);
+        winchMotor->Set(0);
     }
     else
     {
-        WinchMotor.Set(WinchSpeed);
+        winchMotor->Set(WinchSpeed);
     }
 }
 
-void Forklift::ForkliftDown(){
+void Forklift::ForkliftDown()
+{
     ForkliftDown(0.824);
 }
 
- void Forklift::ForkliftDown(double WinchSpeed){
-     if (WinchSpeed < 0)
-         {
-             return;
-         }
+void Forklift::ForkliftDown(double WinchSpeed)
+{
+    if (WinchSpeed < 0)
+    {
+        return;
+    }
 
-         if (LimitSwitches.Get())
-         {
-             WinchMotor.Set(0);
-         }
-         else
-         {
-             WinchMotor.Set(-1*WinchSpeed);
-         }
- }
+    if (limitSwitches->Get())
+    {
+        winchMotor->Set(0);
+    }
+    else
+    {
+        winchMotor->Set(-1 * WinchSpeed);
+    }
+}
+
+}

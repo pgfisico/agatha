@@ -1,24 +1,32 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
+#include "Controls.h"
 
-#include <Controls.h>
-#include <WPILib.h>
-#include "Commands/GrabCube.h"
-#include"Commands/ReleaseCube.h"
+#include <utility>
 
-frc::XboxController Controls::controller(0);
+namespace ophelia
+{
+
+
+// TODO redo...
 constexpr static int Bbutton = 2;
 constexpr static int Abutton = 1;
-Controls::Controls()
+
+
+// TODO overhaul all!!!
+/*Controls::Controls()
 {
-    // Process operator interface input here.
+    // TODO Process operator interface input here.
     JoystickButton* GrabButton = new JoystickButton(&controller, Bbutton);
     GrabButton->WhileHeld(new GrabCube());
 
     JoystickButton* ReleaseButton = new JoystickButton(&controller, Abutton);
     ReleaseButton->WhileHeld(new ReleaseCube());
+}*/
+
+
+// TODO might the controls ever want to control robot state -- e.g. does controls represent teleop AND auto???, rumble feedback???
+Controls::Controls(std::unique_ptr<frc::XboxController> xboxController) : xboxController(std::move(xboxController))
+{
+    // Intentionally empty
+}
+
 }

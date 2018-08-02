@@ -1,49 +1,49 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
-#include <Controls.h>
 #include "DriveWithJoystick.h"
-#include <Subsystems/DriveTrain.h>
-#include "../Robot.h"
-#include <Xboxcontroller.h>
 
+// TODO below
+#include <Controls.h>
+#include <Ophelia.h>
+#include <Subsystems/DriveTrain.h>
+#include <Xboxcontroller.h>
 
 typedef frc::GenericHID::JoystickHand JoystickHand;
 
+namespace ophelia
+{
+
 DriveWithJoystick::DriveWithJoystick()
 {
-    Requires(&Robot::drivetrain);
+    // TODO inject subsystem
+    //Requires(&Ophelia::drivetrain);
 }
 
-// Called repeatedly when this Command is scheduled to run
 void DriveWithJoystick::Execute()
 {
-    auto &joystick = Controls::controller;
-    double straight = joystick.GetY(JoystickHand::kLeftHand);
-    double turn = -1 * joystick.GetX(JoystickHand::kRightHand);
-    bool turbo = joystick.GetBumper(JoystickHand::kLeftHand);
+    // TODO inject controls
+    //auto &joystick = Controls::controller;
+    /*    double straight = joystick.GetY(JoystickHand::kLeftHand);
+     double turn = -1 * joystick.GetX(JoystickHand::kRightHand);
+     bool turbo = joystick.GetBumper(JoystickHand::kLeftHand);
 
-    if (!turbo)
-    {
-        straight = std::pow(straight, 3) * 0.5;
-        turn = std::pow(turn, 3) * 0.5;
-    }
+     if (!turbo)
+     {
+     straight = std::pow(straight, 3) * 0.5;
+     turn = std::pow(turn, 3) * 0.5;
+     }*/
 
-    Robot::drivetrain.ArcadeDrive(straight, turn);
+    // TODO inject subsystem
+    //Ophelia::drivetrain.ArcadeDrive(straight, turn);
 }
 
-// Make this return true when this Command no longer needs to run execute()
 bool DriveWithJoystick::IsFinished()
 {
     return false;
 }
 
-// Called once after isFinished returns true
 void DriveWithJoystick::End()
 {
-    Robot::drivetrain.Stop();
+    // TODO inject subsystem
+    //Ophelia::drivetrain.Stop();
+}
+
 }

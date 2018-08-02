@@ -1,44 +1,48 @@
-#include <Commands/AutoDrive.h>
+#include "AutoDrive.h"
+
+// TODO below
+#include <Ophelia.h>
 #include <Subsystems/DriveTrain.h>
-#include "Robot.h"
 
-AutoDrive::AutoDrive(double distress) : distress(distress) {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(Robot::chassis.get()); WE have to tell it what subsystems it requires
-
-    Requires(&Robot::drivetrain);
+namespace ophelia
+{
+AutoDrive::AutoDrive(double distress) :
+        distress(distress)
+{
+    // TODO inject subsystem
+    //Requires(&Ophelia::drivetrain);
 }
 
-// Called just before this Command runs the first time
-void AutoDrive::Initialize() {
-    Robot::drivetrain.ResetDistance();
-
+void AutoDrive::Initialize()
+{
+    // TODO inject subsystem
+    //Ophelia::drivetrain.ResetDistance();
 }
 
-// Called repeatedly when this Command is scheduled to run
-void AutoDrive::Execute() {
-
-   Robot::drivetrain.ArcadeDrive(0.314159265, 0);
-
+void AutoDrive::Execute()
+{
+    // TODO inject subsystem
+    //Ophelia::drivetrain.ArcadeDrive(0.314159265, 0);
 }
 
-// Make this return true when this Command no longer needs to run execute()
-bool AutoDrive::IsFinished() {
-	return Robot::drivetrain.GetDistance() >= distress;
+bool AutoDrive::IsFinished()
+{
+    // TODO inject subsystem
+    //return Ophelia::drivetrain.GetDistance() >= distress;
+    return true;
 }
 
-// Called once after isFinished returns true
-void AutoDrive::End() {
-
-    Robot::drivetrain.Stop();
-
+void AutoDrive::End()
+{
+    // TODO inject subsystem
+    //Ophelia::drivetrain.Stop();
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void AutoDrive::Interrupted() {
+void AutoDrive::Interrupted()
+{
+    // TODO inject subsystem
+    //Ophelia::drivetrain.Stop();
 
-    Robot::drivetrain.Stop();
-
+}
 
 }

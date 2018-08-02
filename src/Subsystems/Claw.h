@@ -1,26 +1,24 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 #pragma once
 
+#include <memory>
+
 #include <Commands/Subsystem.h>
-#include <Talon.h>
 #include <SpeedControllerGroup.h>
 
-class Claw : public frc::Subsystem
+#include "../Controls.h"
+#include "../RobotState.h"
+
+namespace ophelia
 {
-    private:
-        // It's desirable that everything possible under private except
-        // for methods that implement subsystem capabilities
-        frc::Talon leftMotor;
-        frc::Talon rightMotor;
-        frc::SpeedControllerGroup clawMotors;
+
+class Claw : public frc::Subsystem, public std::enable_shared_from_this<Claw>
+{
     public:
-        Claw();
+        Claw(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,
+                std::unique_ptr<frc::SpeedController> leftMotor, std::unique_ptr<frc::SpeedController> rightMotor);
+
+        // TODO fixup...
+
         void InitDefaultCommand() override;
         /**
          * grabs the power cube.
@@ -30,5 +28,15 @@ class Claw : public frc::Subsystem
          * releases the power cube.
          */
         void release();
+
+    private:
+        std::shared_ptr<Controls> controls;
+        std::shared_ptr<RobotState> robotState;
+
+        std::unique_ptr<frc::SpeedController> leftMotor;
+        std::unique_ptr<frc::SpeedController> rightMotor;
+
+        std::unique_ptr<frc::SpeedControllerGroup> clawMotors;
 };
 
+}

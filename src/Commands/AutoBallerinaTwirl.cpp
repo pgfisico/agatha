@@ -1,65 +1,72 @@
 #include "AutoBallerinaTwirl.h"
+
+// TODO below
 #include <Subsystems/DriveTrain.h>
-#include "Robot.h"
 
-AutoBallerinaTwirl::AutoBallerinaTwirl() {
-    AutoBallerinaTwirl(0);
-}
+namespace ophelia
+{
 
-AutoBallerinaTwirl::AutoBallerinaTwirl(double angle) : Twirl(angle) {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(Robot::chassis.get());
-    Requires(&Robot::drivetrain);
+AutoBallerinaTwirl::AutoBallerinaTwirl(double angle) :
+        Twirl(angle)
+{
+    // TODO inject subsystem
+    //Requires(&Ophelia::drivetrain);
 
     isClockwise = angle > 0;
 }
 
-// Called just before this Command runs the first time
-void AutoBallerinaTwirl::Initialize() {
+void AutoBallerinaTwirl::Initialize()
+{
 //positive angle's are clockwise and negative angles are counterclockwises because judy said so
 
-    double StartingAngle=Robot::drivetrain.GetHeading();
+    // TODO inject subsystem
+    // double StartingAngle = Ophelia::drivetrain.GetHeading();
+    double StartingAngle = 0;
 
-    if (isClockwise){
-        EndingAngle=StartingAngle+Twirl;
+    if (isClockwise)
+    {
+        EndingAngle = StartingAngle + Twirl;
 
-        if (EndingAngle > 360) {
+        if (EndingAngle > 360)
+        {
             EndingAngle = EndingAngle - 360;
 
         }
     }
-    else {
+    else
+    {
 
-        EndingAngle= StartingAngle - Twirl;
-        if(EndingAngle < 0){
+        EndingAngle = StartingAngle - Twirl;
+        if (EndingAngle < 0)
+        {
             EndingAngle = EndingAngle + 360;
         }
     }
 }
 
-// Called repeatedly when this Command is scheduled to run
-void AutoBallerinaTwirl::Execute() {
-
-    Robot::drivetrain.ArcadeDrive(0, 0.3141459265);
+void AutoBallerinaTwirl::Execute()
+{
+    // TODO inject subsystem
+    //Ophelia::drivetrain.ArcadeDrive(0, 0.3141459265);
 }
 
-// Make this return true when this Command no longer needs to run execute()
-bool AutoBallerinaTwirl::IsFinished() {
-	return false;
-	//bool
+bool AutoBallerinaTwirl::IsFinished()
+{
+    return false;
 }
 
-// Called once after isFinished returns true
-void AutoBallerinaTwirl::End() {
-
-    Robot::drivetrain.Stop();
+void AutoBallerinaTwirl::End()
+{
+    // TODO inject subsystem
+    //Ophelia::drivetrain.Stop();
 
 }
 
-// Called when another command which requires one or more of the same
-// subsystems is scheduled to run
-void AutoBallerinaTwirl::Interrupted() {
+void AutoBallerinaTwirl::Interrupted()
+{
+    // TODO inject subsystem
+    //Ophelia::drivetrain.Stop();
 
-    Robot::drivetrain.Stop();
+}
 
 }
