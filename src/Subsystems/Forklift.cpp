@@ -1,29 +1,31 @@
 #include "Forklift.h"
 
-#include <utility>
-
-// TODO
-//#include "Commands/Leviosa.h"
+#include "Commands/TeleopForklift.h"
 
 namespace agatha
 {
 
+static const char* SUBSYSTEM_NAME = "Forklift";
+
 Forklift::Forklift(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,
-        std::unique_ptr<frc::SpeedController> winchMotor, std::unique_ptr<frc::DigitalInput> limitSwitches) :
-        frc::Subsystem("Forklift"), controls(controls), robotState(robotState), winchMotor(std::move(winchMotor)),
+        std::unique_ptr<frc::PWMSpeedController> winchMotor, std::unique_ptr<frc::DigitalInput> limitSwitches) :
+        frc::Subsystem(SUBSYSTEM_NAME), controls(controls), robotState(robotState), winchMotor(std::move(winchMotor)),
                 limitSwitches(std::move(limitSwitches))
 {
-    // Intentionally empty
+    configureSendables();
+}
+
+void Forklift::configureSendables()
+{
+    winchMotor->SetName(SUBSYSTEM_NAME, "WinchMotor");
+    limitSwitches->SetName(SUBSYSTEM_NAME, "LimitSwitches");
 }
 
 void Forklift::InitDefaultCommand()
 {
-    //SetDefaultCommand(new Leviosa());
-}
-
-void Forklift::ForkliftUp()
-{
-    ForkliftUp(0.824);
+    // TODO keep ref???
+    auto cmd = new TeleopForklift(controls, shared_from_this());
+    SetDefaultCommand(cmd);
 }
 
 void Forklift::ForkliftUp(double WinchSpeed)
@@ -35,7 +37,7 @@ void Forklift::ForkliftUp(double WinchSpeed)
 
     if (limitSwitches->Get())
     {
-        winchMotor->Set(0);
+        Stop();
     }
     else
     {
@@ -43,26 +45,9 @@ void Forklift::ForkliftUp(double WinchSpeed)
     }
 }
 
-void Forklift::ForkliftDown()
+void Forklift::Stop()
 {
-    ForkliftDown(0.824);
-}
-
-void Forklift::ForkliftDown(double WinchSpeed)
-{
-    if (WinchSpeed < 0)
-    {
-        return;
-    }
-
-    if (limitSwitches->Get())
-    {
-        winchMotor->Set(0);
-    }
-    else
-    {
-        winchMotor->Set(-1 * WinchSpeed);
-    }
+    winchMotor->StopMotor();
 }
 
 }

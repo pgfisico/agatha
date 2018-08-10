@@ -3,6 +3,7 @@
 #include <memory>
 
 #include <Commands/Subsystem.h>
+#include <PWMSpeedController.h>
 #include <SpeedControllerGroup.h>
 
 #include "../Controls.h"
@@ -15,7 +16,7 @@ class Claw : public frc::Subsystem, public std::enable_shared_from_this<Claw>
 {
     public:
         Claw(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,
-                std::unique_ptr<frc::SpeedController> leftMotor, std::unique_ptr<frc::SpeedController> rightMotor);
+                std::unique_ptr<frc::PWMSpeedController> leftMotor, std::unique_ptr<frc::PWMSpeedController> rightMotor);
 
         // TODO fixup...
 
@@ -33,10 +34,12 @@ class Claw : public frc::Subsystem, public std::enable_shared_from_this<Claw>
         std::shared_ptr<Controls> controls;
         std::shared_ptr<RobotState> robotState;
 
-        std::unique_ptr<frc::SpeedController> leftMotor;
-        std::unique_ptr<frc::SpeedController> rightMotor;
+        std::unique_ptr<frc::PWMSpeedController> leftMotor;
+        std::unique_ptr<frc::PWMSpeedController> rightMotor;
 
         std::unique_ptr<frc::SpeedControllerGroup> clawMotors;
+
+        void configureSendables();
 };
 
 }

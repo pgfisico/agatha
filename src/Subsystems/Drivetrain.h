@@ -6,7 +6,7 @@
 #include <Commands/Subsystem.h>
 #include <Drive/DifferentialDrive.h>
 #include <Encoder.h>
-#include <SpeedController.h>
+#include <PWMSpeedController.h>
 #include <SpeedControllerGroup.h>
 
 // TODO nav
@@ -27,15 +27,18 @@ class Drivetrain : public frc::Subsystem, public std::enable_shared_from_this<Dr
 {
     public:
         Drivetrain(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,
-                std::unique_ptr<frc::SpeedController> frontLeftMotor,
-                std::unique_ptr<frc::SpeedController> frontRightMotor,
-                std::unique_ptr<frc::SpeedController> rearLeftMotor,
-                std::unique_ptr<frc::SpeedController> rearRightMotor, std::unique_ptr<frc::Encoder> leftEncoder,
+                std::unique_ptr<frc::PWMSpeedController> frontLeftMotor,
+                std::unique_ptr<frc::PWMSpeedController> frontRightMotor,
+                std::unique_ptr<frc::PWMSpeedController> rearLeftMotor,
+                std::unique_ptr<frc::PWMSpeedController> rearRightMotor, std::unique_ptr<frc::Encoder> leftEncoder,
                 std::unique_ptr<frc::Encoder> rightEncoder);
 
         // TODO fixup...
         void InitDefaultCommand() override;
+
+        // TODO rename params
         void ArcadeDrive(double leftAxis, double rightAxis);
+        // TODOnocapss??
         void Stop();
         void ResetDistance();
         double GetDistance();
@@ -45,11 +48,11 @@ class Drivetrain : public frc::Subsystem, public std::enable_shared_from_this<Dr
         std::shared_ptr<Controls> controls;
         std::shared_ptr<RobotState> robotState;
 
-        std::unique_ptr<frc::SpeedController> frontLeftMotor;
-        std::unique_ptr<frc::SpeedController> frontRightMotor;
+        std::unique_ptr<frc::PWMSpeedController> frontLeftMotor;
+        std::unique_ptr<frc::PWMSpeedController> frontRightMotor;
 
-        std::unique_ptr<frc::SpeedController> rearLeftMotor;
-        std::unique_ptr<frc::SpeedController> rearRightMotor;
+        std::unique_ptr<frc::PWMSpeedController> rearLeftMotor;
+        std::unique_ptr<frc::PWMSpeedController> rearRightMotor;
 
         std::unique_ptr<frc::SpeedControllerGroup> leftMotors;
         std::unique_ptr<frc::SpeedControllerGroup> rightMotors;
@@ -57,11 +60,12 @@ class Drivetrain : public frc::Subsystem, public std::enable_shared_from_this<Dr
         std::unique_ptr<frc::Encoder> leftEncoder;
         std::unique_ptr<frc::Encoder> rightEncoder;
 
-        // TODO
-        //frc::DifferentialDrive robotDrive;
+        std::unique_ptr<frc::DifferentialDrive> differentialDrive;
 
         // TODO nav
         //  AHRS navSensor;
+
+        void configureSendables();
 };
 
 }

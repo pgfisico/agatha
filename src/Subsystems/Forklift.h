@@ -4,7 +4,7 @@
 
 #include <Commands/Subsystem.h>
 #include <DigitalInput.h>
-#include <SpeedController.h>
+#include <PWMSpeedController.h>
 
 #include "../Controls.h"
 #include "../RobotState.h"
@@ -12,27 +12,27 @@
 namespace agatha
 {
 
-class Forklift : public frc::Subsystem
+class Forklift : public frc::Subsystem, public std::enable_shared_from_this<Forklift>
 {
     public:
         Forklift(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,
-                std::unique_ptr<frc::SpeedController> winchMotor, std::unique_ptr<frc::DigitalInput> limitSwitches);
+                std::unique_ptr<frc::PWMSpeedController> winchMotor, std::unique_ptr<frc::DigitalInput> limitSwitches);
 
-        // TODO fixup...
         void InitDefaultCommand() override;
-        void ForkliftUp();
+
         void ForkliftUp(double WinchSpeed);
-        void ForkliftDown();
-        void ForkliftDown(double WinchSpeed);
+        void Stop();
 
     private:
         std::shared_ptr<Controls> controls;
         std::shared_ptr<RobotState> robotState;
 
-        std::unique_ptr<frc::SpeedController> winchMotor;
+        std::unique_ptr<frc::PWMSpeedController> winchMotor;
         // TODO move documentation
         //The limit switches are plugged in to the NC2 and COM if you are confused asked Judy @ 587 429 2424
         std::unique_ptr<frc::DigitalInput> limitSwitches;
+
+        void configureSendables();
 };
 
 }
