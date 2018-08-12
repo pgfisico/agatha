@@ -5,7 +5,7 @@ namespace agatha
 
 static const char* SUBSYSTEM_NAME = "Claw";
 
-// TODO wrap in namespace -- add to a config???
+// TODO add to a config???
 constexpr static double SPEED = 0.5;
 
 Claw::Claw(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,
@@ -24,18 +24,19 @@ void Claw::configureSendables()
     clawMotors->SetName(SUBSYSTEM_NAME, "ClawMotorGroup");
 }
 
-void Claw::InitDefaultCommand()
-{
-    // TODO
-}
-
-void Claw::grab()
+void Claw::Grab()
 {
     clawMotors->Set(SPEED);
 }
-void Claw::release()
+
+void Claw::Release()
 {
     clawMotors->Set(-SPEED);
+}
+
+void Claw::Stop()
+{
+    clawMotors->StopMotor();
 }
 
 }

@@ -23,9 +23,7 @@ bool TeleopForklift::IsFinished()
 
 void TeleopForklift::End()
 {
-    // TODO fill??
-    // maybe this should be empty since there is no stop??
-    // although we do need to deassert the subsys....
+    forklift->Stop();
 }
 
 void TeleopForklift::Interrupted()

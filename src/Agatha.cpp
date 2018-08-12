@@ -35,7 +35,6 @@ void Agatha::DisabledInit()
 
 void Agatha::DisabledPeriodic()
 {
-    // TODO??? is this right??? - does it run command s only if set as run in disabled???
     frc::Scheduler::GetInstance()->Run();
 }
 

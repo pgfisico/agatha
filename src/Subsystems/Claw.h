@@ -18,17 +18,9 @@ class Claw : public frc::Subsystem, public std::enable_shared_from_this<Claw>
         Claw(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,
                 std::unique_ptr<frc::PWMSpeedController> leftMotor, std::unique_ptr<frc::PWMSpeedController> rightMotor);
 
-        // TODO fixup...
-
-        void InitDefaultCommand() override;
-        /**
-         * grabs the power cube.
-         */
-        void grab();
-        /**
-         * releases the power cube.
-         */
-        void release();
+        void Grab();
+        void Release();
+        void Stop();
 
     private:
         std::shared_ptr<Controls> controls;

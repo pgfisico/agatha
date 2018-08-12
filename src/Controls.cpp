@@ -8,9 +8,7 @@ namespace agatha
 {
 
 // TODO might the controls ever want to control robot state -- e.g. does controls represent teleop AND auto???, rumble feedback???
-// i.e. controls are two way
-// could go back to OI name
-// probably want to be a state listener?? -- should auto commands mimic controls are talk direct to subsys??
+// probably want to be a robot state listener??
 Controls::Controls(std::unique_ptr<frc::XboxController> xboxController) :
         xboxController(std::move(xboxController))
 {

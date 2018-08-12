@@ -63,6 +63,7 @@ void Drivetrain::InitDefaultCommand()
 
 void Drivetrain::ArcadeDrive(double leftAxis, double rightAxis)
 {
+    // TODO this also applies a deadband by default....
     differentialDrive->ArcadeDrive(leftAxis, rightAxis, false);
 }
 
@@ -88,4 +89,5 @@ float Drivetrain::GetHeading()
     //return navSensor.GetFusedHeading();
     return 0;
 }
+
 }
