@@ -1,40 +1,34 @@
 #include "GrabCube.h"
 
-// TODO below
-
 namespace agatha
 {
 
-GrabCube::GrabCube()
+GrabCube::GrabCube(std::shared_ptr<Claw> claw) :
+        frc::Command("GrabCube"), claw(claw)
 {
-    // TODO inject subsystem
-    //Requires(&Ophelia::claw);
-}
-
-void GrabCube::Initialize()
-{
-    // TODO drop?
+    Requires(claw.get());
 }
 
 void GrabCube::Execute()
 {
-    // TODO inject subsystem
-    //Ophelia::claw.grab();
+    claw->Grab();
 }
 
 bool GrabCube::IsFinished()
 {
+    // This command is scheduled while a JoystickButton is held
+    // It should always be running to avoid spurious End() calls
     return false;
 }
 
 void GrabCube::End()
 {
-    // TODO fill??
+    claw->Stop();
 }
 
 void GrabCube::Interrupted()
 {
-    // TODO fill?
+    End();
 }
 
 }

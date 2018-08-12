@@ -1,40 +1,34 @@
 #include "ReleaseCube.h"
 
-// TODO below
-
 namespace agatha
 {
 
-ReleaseCube::ReleaseCube()
+ReleaseCube::ReleaseCube(std::shared_ptr<Claw> claw) :
+        frc::Command("ReleaseCube"), claw(claw)
 {
-    // TODO inject subsystem
-    //Requires(&Ophelia::claw);
-}
-
-void ReleaseCube::Initialize()
-{
-    // TODO drop??
+    Requires(claw.get());
 }
 
 void ReleaseCube::Execute()
 {
-    // TODO inject subsystem
-    //Ophelia::claw.release();
+    claw->Release();
 }
 
 bool ReleaseCube::IsFinished()
 {
+    // This command is scheduled while a JoystickButton is held
+    // It should always be running to avoid spurious End() calls
     return false;
 }
 
 void ReleaseCube::End()
 {
-    // TODO fill??
+    claw->Stop();
 }
 
 void ReleaseCube::Interrupted()
 {
-    // TODO fill??
+    End();
 }
 
 }

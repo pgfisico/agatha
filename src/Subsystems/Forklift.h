@@ -28,8 +28,6 @@ class Forklift : public frc::Subsystem, public std::enable_shared_from_this<Fork
         std::shared_ptr<RobotState> robotState;
 
         std::unique_ptr<frc::PWMSpeedController> winchMotor;
-        // TODO move documentation
-        //The limit switches are plugged in to the NC2 and COM if you are confused asked Judy @ 587 429 2424
         std::unique_ptr<frc::DigitalInput> limitSwitches;
 
         void configureSendables();

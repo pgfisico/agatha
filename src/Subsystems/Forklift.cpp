@@ -35,6 +35,7 @@ void Forklift::ForkliftUp(double WinchSpeed)
         return;
     }
 
+    //The limit switches are plugged in to the NC2 and COM if you are confused asked Judy @ 587 429 2424
     if (limitSwitches->Get())
     {
         Stop();
