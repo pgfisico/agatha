@@ -21,6 +21,8 @@ void Agatha::RobotInit()
     claw = robotBuilder.getClaw();
     drivetrain = robotBuilder.getDrivetrain();
     forklift = robotBuilder.getForklift();
+
+    controls->registerButtons(claw);
 }
 
 void Agatha::RobotPeriodic()
