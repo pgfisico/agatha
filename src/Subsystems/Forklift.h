@@ -6,11 +6,11 @@
 #include <DigitalInput.h>
 #include <PWMSpeedController.h>
 
-#include "../Controls.h"
-#include "../RobotState.h"
-
 namespace agatha
 {
+
+class Controls;
+class RobotState;
 
 class Forklift : public frc::Subsystem, public std::enable_shared_from_this<Forklift>
 {

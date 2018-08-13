@@ -4,11 +4,11 @@
 
 #include <Commands/Command.h>
 
-#include "Subsystems/Drivetrain.h"
-#include "Controls.h"
-
 namespace agatha
 {
+
+class Controls;
+class Drivetrain;
 
 class TeleopDrive : public frc::Command
 {

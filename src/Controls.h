@@ -2,7 +2,6 @@
 
 #include <memory>
 
-// TODO fwd decl...
 #include <XboxController.h>
 
 namespace agatha

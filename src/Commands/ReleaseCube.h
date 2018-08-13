@@ -4,10 +4,10 @@
 
 #include <Commands/Command.h>
 
-#include "Subsystems/Claw.h"
-
 namespace agatha
 {
+
+class Claw;
 
 class ReleaseCube : public frc::Command
 {

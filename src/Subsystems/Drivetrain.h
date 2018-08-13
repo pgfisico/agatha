@@ -2,7 +2,6 @@
 
 #include <memory>
 
-// TODO should probably just forward declare.......
 #include <Commands/Subsystem.h>
 #include <Drive/DifferentialDrive.h>
 #include <Encoder.h>
@@ -15,12 +14,11 @@
 //#include <AHRS.h>
 #pragma GCC diagnostic pop
 
-// TODO is there a way to avoid the ..
-#include "../Controls.h"
-#include "../RobotState.h"
-
 namespace agatha
 {
+
+class Controls;
+class RobotState;
 
 // TODO consider pulling up common subsystem items - name, controls/robotState, shared_form_this, etc
 class Drivetrain : public frc::Subsystem, public std::enable_shared_from_this<Drivetrain>
@@ -33,7 +31,6 @@ class Drivetrain : public frc::Subsystem, public std::enable_shared_from_this<Dr
                 std::unique_ptr<frc::PWMSpeedController> rearRightMotor, std::unique_ptr<frc::Encoder> leftEncoder,
                 std::unique_ptr<frc::Encoder> rightEncoder);
 
-        // TODO fixup...
         void InitDefaultCommand() override;
 
         // TODO rename params

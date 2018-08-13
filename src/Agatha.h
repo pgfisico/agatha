@@ -4,14 +4,15 @@
 
 #include <TimedRobot.h>
 
-#include "Subsystems/Claw.h"
-#include "Subsystems/Drivetrain.h"
-#include "Subsystems/Forklift.h"
-#include "Controls.h"
-#include "RobotState.h"
-
 namespace agatha
 {
+
+class Controls;
+class RobotState;
+
+class Claw;
+class Drivetrain;
+class Forklift;
 
 class Agatha : public frc::TimedRobot
 {

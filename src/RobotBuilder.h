@@ -2,20 +2,20 @@
 
 #include <memory>
 
-#include "Subsystems/Claw.h"
-#include "Subsystems/Drivetrain.h"
-#include "Subsystems/Forklift.h"
-#include "Controls.h"
-#include "RobotState.h"
-
 namespace agatha
 {
+
+class Controls;
+class RobotState;
+
+class Claw;
+class Drivetrain;
+class Forklift;
 
 class RobotBuilder
 {
         // TODO delete extra ctors...??
     public:
-        // TODO noexcept???
         void build();
 
         std::shared_ptr<Controls> getControls();

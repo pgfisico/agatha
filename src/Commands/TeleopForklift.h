@@ -4,11 +4,11 @@
 
 #include <Commands/Command.h>
 
-#include "Subsystems/Forklift.h"
-#include "Controls.h"
-
 namespace agatha
 {
+
+class Controls;
+class Forklift;
 
 class TeleopForklift : public frc::Command
 {

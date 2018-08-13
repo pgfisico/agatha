@@ -1,8 +1,8 @@
 // TODO doc
 
-#include <Agatha.h>
 #include <RobotBase.h>
 
+#include "Agatha.h"
 
 START_ROBOT_CLASS(agatha::Agatha)
 

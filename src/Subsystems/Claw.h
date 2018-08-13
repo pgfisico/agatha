@@ -3,14 +3,15 @@
 #include <memory>
 
 #include <Commands/Subsystem.h>
+// TODO should we fwd declare frc claswses??
 #include <PWMSpeedController.h>
 #include <SpeedControllerGroup.h>
 
-#include "../Controls.h"
-#include "../RobotState.h"
-
 namespace agatha
 {
+
+class Controls;
+class RobotState;
 
 class Claw : public frc::Subsystem, public std::enable_shared_from_this<Claw>
 {

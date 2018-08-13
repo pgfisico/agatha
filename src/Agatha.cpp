@@ -4,6 +4,7 @@
 
 #include <Commands/Scheduler.h>
 
+#include "Controls.h"
 #include "RobotBuilder.h"
 
 namespace agatha
@@ -22,6 +23,7 @@ void Agatha::RobotInit()
     drivetrain = robotBuilder.getDrivetrain();
     forklift = robotBuilder.getForklift();
 
+    // TODO should the subsys just register itself???? - it has controls ref...
     controls->registerButtons(claw);
 }
 

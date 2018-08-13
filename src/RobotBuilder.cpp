@@ -9,7 +9,12 @@
 #include <VictorSP.h>
 #include <XboxController.h>
 
+#include "Subsystems/Claw.h"
+#include "Subsystems/Drivetrain.h"
+#include "Subsystems/Forklift.h"
+#include "Controls.h"
 #include "Pins.h"
+#include "RobotState.h"
 
 namespace agatha
 {
