@@ -10,8 +10,8 @@ constexpr static double SPEED = 0.5;
 
 Claw::Claw(std::shared_ptr<Controls> controls, std::shared_ptr<RobotState> robotState,
         std::unique_ptr<frc::PWMSpeedController> leftMotor, std::unique_ptr<frc::PWMSpeedController> rightMotor) :
-        frc::Subsystem(SUBSYSTEM_NAME), controls(controls), robotState(robotState),
-                clawMotors(new frc::SpeedControllerGroup(*leftMotor, *rightMotor))
+        frc::Subsystem(SUBSYSTEM_NAME), controls(controls), robotState(robotState), leftMotor(std::move(leftMotor)),
+                rightMotor(std::move(rightMotor)), clawMotors(new frc::SpeedControllerGroup(*leftMotor, *rightMotor))
 {
     configureSendables();
 }
