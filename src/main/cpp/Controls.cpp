@@ -1,11 +1,11 @@
-#include "Controls.h"
+#include <Controls.h>
 
 #include <utility>
 
 #include <Buttons/JoystickButton.h>
 
-#include "Commands/GrabCube.h"
-#include "Commands/ReleaseCube.h"
+#include <Commands/GrabCube.h>
+#include <Commands/ReleaseCube.h>
 
 typedef frc::GenericHID::JoystickHand Hand;
 

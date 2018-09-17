@@ -1,6 +1,6 @@
-#include "ReleaseCube.h"
+#include <Commands/ReleaseCube.h>
 
-#include "Subsystems/Claw.h"
+#include <Subsystems/Claw.h>
 
 namespace agatha
 {
