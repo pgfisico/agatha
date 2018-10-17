@@ -1,7 +1,7 @@
-#include "TeleopDrive.h"
+#include <Commands/TeleopDrive.h>
 
-#include "Subsystems/Drivetrain.h"
-#include "Controls.h"
+#include <Subsystems/Drivetrain.h>
+#include <Controls.h>
 
 namespace agatha
 {

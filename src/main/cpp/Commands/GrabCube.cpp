@@ -1,6 +1,6 @@
-#include "GrabCube.h"
+#include <Commands/GrabCube.h>
 
-#include "Subsystems/Claw.h"
+#include <Subsystems/Claw.h>
 
 namespace agatha
 {

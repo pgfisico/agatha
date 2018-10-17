@@ -1,11 +1,11 @@
-#include "Agatha.h"
+#include <Agatha.h>
 
 #include <utility>
 
 #include <Commands/Scheduler.h>
 
-#include "Controls.h"
-#include "RobotBuilder.h"
+#include <Controls.h>
+#include <RobotBuilder.h>
 
 namespace agatha
 {

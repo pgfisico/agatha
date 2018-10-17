@@ -1,7 +1,7 @@
-#include "TeleopForklift.h"
+#include <Commands/TeleopForklift.h>
 
-#include "Subsystems/Forklift.h"
-#include "Controls.h"
+#include <Subsystems/Forklift.h>
+#include <Controls.h>
 
 namespace agatha
 {
