@@ -26,6 +26,8 @@ class RobotBuilder
         std::shared_ptr<Forklift> getForklift();
 
     private:
+        bool built = false;
+
         std::shared_ptr<Controls> controls;
         std::shared_ptr<RobotState> robotState;
 

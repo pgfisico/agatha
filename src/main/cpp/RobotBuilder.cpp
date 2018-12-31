@@ -19,15 +19,21 @@
 namespace agatha
 {
 
-// TODO consider double build protection??
 void RobotBuilder::build()
 {
+    if (built)
+    {
+        return;
+    }
+    
     buildControls();
     buildRobotState();
 
     buildClaw();
     buildDrivetrain();
     buildForklift();
+
+    built = true;
 }
 
 std::shared_ptr<Controls> RobotBuilder::getControls()
