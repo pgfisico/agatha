@@ -7,7 +7,7 @@
 #include <Commands/GrabCube.h>
 #include <Commands/ReleaseCube.h>
 
-typedef frc::GenericHID::JoystickHand Hand;
+using Hand = frc::GenericHID::JoystickHand;
 
 namespace agatha
 {
